@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sky {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to top, #ffcc70, #ff6f61, #563d7c);
+  position: relative;
+}
+
+.sun {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #FFD700, #FFA500);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 30%;
+  transform: translateX(-50%);
+  animation: sunset 10s ease-in-out infinite alternate;
+}
+
+@keyframes sunset {
+  from {
+    bottom: 60%;
+  }
+  to {
+    bottom: 20%;
+  }
+}
+
+.cloud {
+  width: 150px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50px;
+  position: absolute;
+  top: 20%;
+  opacity: 0.8;
+  transition: transform 5s linear;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  left: -50px;
+  top: -20px;
+}
+
+.cloud::after {
+  left: 70px;
+  top: -10px;
+}
+
+.cloud1 {
+  left: -200px;
+  animation: cloud-move 30s linear infinite;
+}
+
+.cloud2 {
+  top: 30%;
+  left: -300px;
+  animation: cloud-move 40s linear infinite;
+}
+
+@keyframes cloud-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200vw); }
+}
+
+.mountain {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(to top, #3e2f5b, #5c3d73);
+  clip-path: polygon(0% 100%, 20% 60%, 40% 90%, 60% 50%, 80% 80%, 100% 40%, 100% 100%);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  transition: transform 1s ease;
+}
+
+.mountain:hover {
+  transform: scale(1.02);
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background: #2e1f3e;
+}
